@@ -1,15 +1,18 @@
 export class FETCHrequest {
-    constructor(url, requestType, data = null) {
+    constructor(url, requestType, data = null, key = null) {
         this.url = url;
         this.requestType = requestType;
         this.data = data;
         this.requestHeader = {
             method: requestType,
-/*             headers: {
-                'Content-Type': 'application/json',
-                'X-Api-Key' : ''
-            } */
         };
+        this.key = key;
+
+        if(this.key !== null){
+            this.requestHeader.headers = {
+                'X-Api-Key' : this.key
+            }
+        }
 
         if (this.requestType === 'POST' || this.requestType === 'PUT') {
             this.requestHeader.body = JSON.stringify(this.data);

@@ -1,3 +1,5 @@
+import navbarSelectLang from './navbarSelectLang'
+import navbarSelectMedia from './navbarSelectMedia'
 import logo from '../../assets/img/live-news.svg'
 
 export default (element) => {
@@ -62,8 +64,11 @@ export default (element) => {
     </div>
 </div>
         `
-        console.log(navContainer)
         element.appendChild(navContainer)
+        let selectMedia = document.querySelector('#selectMedia')
+        let selectLang = document.querySelector('#selectLang')
+        navbarSelectLang(selectLang)
+        navbarSelectMedia(selectMedia)
     }
 
     return render()
