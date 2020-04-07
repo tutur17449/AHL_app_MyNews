@@ -5,17 +5,6 @@ import { checkNavToggle } from '../../tools/checkNavToggle'
 
 export default (element) => {
 
-    let apiUrlLang = "https://newsapi.org/v2/sources?language=fr"
-
-    let fetchApi = new FETCHrequest(apiUrlLang,'GET', null, process.env.API_KEY);
-    fetchApi.fetch()
-    .then(jsonData => {
-        return render(jsonData)
-    })
-    .catch(error => {
-        console.log(error)
-    })
-
     const onHandleChange = () => {
         element.addEventListener('change', () => {
             openLoading()
@@ -31,8 +20,8 @@ export default (element) => {
     }
 
     const getArticles = (id) => {
-        let searchMediaApiUrlLang = `https://newsapi.org/v2/top-headlines?sources=${id}`
-        let fetchApi = new FETCHrequest(searchMediaApiUrlLang,'GET', null, process.env.API_KEY);
+        let searchCategApiUrlLang = `https://newsapi.org/v2/top-headlines?country=fr&category=${id}`
+        let fetchApi = new FETCHrequest(searchCategApiUrlLang,'GET', null, process.env.API_KEY);
         fetchApi.fetch()
         .then(jsonData => {
             return displayArticles(jsonData)
@@ -43,16 +32,17 @@ export default (element) => {
     }
 
     const render = (data) => {
-        let defaultSelect= document.createElement('option')   
-        defaultSelect.textContent = '-- sources --'
-        defaultSelect.setAttribute('ref-id','null')
-        element.appendChild(defaultSelect)
-        data.sources.map(i => {
-            let option = document.createElement('option')
-            option.setAttribute('ref-id',i.id)
-            option.textContent = i.name
-            element.appendChild(option)
-        })
+        element.innerHTML = `
+<option ref-id="null">--catégories--</option>
+<option ref-id="science">Science</option>
+<option ref-id="technology">Téchnologie</option>
+<option ref-id="business">Business</option>
+<option ref-id="general">Général</option>
+<option ref-id="health">Santé</option>
+<option ref-id="sports">Sport</option>
+<option ref-id="entertainment">Divers</option>        
+        `
         onHandleChange()
-    }
+        }
+    return render()
 }

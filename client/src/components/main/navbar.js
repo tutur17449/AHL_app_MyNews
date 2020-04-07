@@ -1,5 +1,6 @@
 import navbarSelectLang from './navbarSelectLang'
 import navbarSelectMedia from './navbarSelectMedia'
+import navbarSelectCateg from './navbarSelectCateg'
 import logo from '../../assets/img/live-news.svg'
 
 export default (element) => {
@@ -44,14 +45,6 @@ export default (element) => {
             <div class="form-group">
                 <label for="selectCateg">Catégories</label>
                 <select class="form-control" id="selectCateg">
-                    <option ref-id="null">--catégories--</option>
-                    <option ref-id="science">Science</option>
-                    <option ref-id="technology">Téchnologie</option>
-                    <option ref-id="business">Business</option>
-                    <option ref-id="general">Général</option>
-                    <option ref-id="health">Santé</option>
-                    <option ref-id="sports">Sport</option>
-                    <option ref-id="entertainment">Divers</option>
                 </select>
             </div>
         </div>
@@ -67,8 +60,11 @@ export default (element) => {
         element.appendChild(navContainer)
         let selectMedia = document.querySelector('#selectMedia')
         let selectLang = document.querySelector('#selectLang')
+        let selectCateg = document.querySelector('#selectCateg')
         navbarSelectLang(selectLang)
         navbarSelectMedia(selectMedia)
+        navbarSelectCateg(selectCateg)
+    
     }
 
     return render()

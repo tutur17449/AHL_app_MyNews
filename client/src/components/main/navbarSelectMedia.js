@@ -1,6 +1,7 @@
 import { FETCHrequest } from '../../tools/fetchClass'
 import displayArticles from './displayArticles'
 import { openLoading } from '../../tools/displayLoading'
+import { checkNavToggle } from '../../tools/checkNavToggle'
 
 export default (element) => {
 
@@ -18,6 +19,7 @@ export default (element) => {
     const onHandleChange = () => {
         element.addEventListener('change', () => {
             openLoading()
+            checkNavToggle()
             let selectIndex = element.selectedIndex;
             let refId = element.options[selectIndex].getAttribute('ref-id');
             if(refId === 'null'){
