@@ -1,15 +1,145 @@
-#msgPopin {
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    -o-transition: all .3s;
-    transition: all .3s;
+/*
+*   VARIABLES
+*/
+
+:root{
+    --blue-color: #3b97d3;
+    --white-color: #fff;
+}
+
+
+/*
+*   FLEX BOX
+*/
+
+#msgPopin, #fix-news, #fix-article, #left, #fix-news .article, .article-header, #left .navbar {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -o-flex;
+    display: flex;
+}
+
+#left, #fix-news .article {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+}
+
+#msgPopin, #fix-news, #fix-article, #left .navbar {
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+}
+
+#msgPopin, #fix-news, #fix-article, #left {
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -o-align-items: center;
+    align-items: center;    
+}
+
+#msgPopin, #left {
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;    
+}
+
+#fix-news, #fix-article {
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -o-justify-content: space-around;
+    justify-content: space-around;    
+}
+
+#fix-news, #fix-article, #left {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+
+/*
+*   RESET
+*/
+
+a, a:hover {
+    text-decoration: none;
+}
+
+select {
+    width:30%;
+}
+
+h2, #fix-news div p {
+    color: var(--white-color);
+    text-shadow: 1px 1px 0 var(--blue-color), 
+    1px -1px 0 var(--blue-color), 
+    -1px 1px 0 var(--blue-color), 
+    -1px -1px 0 var(--blue-color), 
+    1px 0px 0 var(--blue-color), 
+    0px 1px 0 var(--blue-color), 
+    -1px 0px 0 var(--blue-color), 
+    0px -1px 0 var(--blue-color);
+}
+
+.btn-auth {
+    background-color: var(--white-color);
+    border: 1px solid var(--blue-color);
+    color: var(--blue-color);
+    transition-property: all;
+    transition-duration: .4s;
+}
+
+.btn-auth:hover {
+    background-color: var(--blue-color);
+    border: 1px solid var(--blue-color);
+    color: var(--white-color);
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.row {
+    margin: 0;
+}
+
+.btn-light {
+    background-color: #b9b9b9;
+    font-weight: bold;
+}
+
+#loader {
+    display: none;
+    position: fixed;
+    width:100vw;
+    height:100vh;
+    background-color: var(--white-color);
+}
+
+#loader img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.btnShow {
+    background-color: transparent;
+    border:none;
+}
+
+.bg-light {
+    background-color: transparent!important;
 }
 
 #msgPopin {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     bottom: 2rem;
     left: -110%;
@@ -19,11 +149,192 @@
     left: 2rem!important;
 }
 
-.bg-light {
-    background-color: #fff!important;
+/*
+*   SPE DESKTOP
+*/
+
+.img-article {
+    width: 100%; 
+    margin: auto;
 }
 
-#loading {
+#fix-news{
+    overflow-y: scroll!important;
+    margin: auto;
+    height: 100vh;
+    width: 100%;
+}
+
+#fix-article{
+    overflow-y: scroll!important;
+    margin: auto;
+    height: 100vh;
+    width: 100%;
+}
+
+#right{
+/*     background: url(../img/bg3.jpg); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    width: 70%;
+}
+
+#right-mobile {
+    position: fixed;
+    right: -66rem;
+    top: 0;
+    width: 40rem;
+    height: 100vh;
+    background: var(--white-color);
+    padding: 2rem;
+    z-index: 10;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+@media (max-width:768px){
+    #right-mobile {
+        padding: 1rem;
+    }
+}
+
+#right-mobile.open{
+    right: 0;
+    color: #000;
+    width: 40%;
+    overflow-y: scroll;
+}
+
+#left {
+    width: 30%;
+}
+
+#left .navbar {
+    height: 100vh;
+}
+
+body{
+    position:fixed;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll!important;
+}
+
+footer {
+    position:fixed;
+    bottom: 0rem;
+    left: 2rem;
+}
+
+#fix-news .article {
+    height: 300px;
+    transition-property: all;
+    transition-duration: .5s;
+    width: 30%;
+    background-color: rgb(255, 255, 255, .85);
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+}
+
+#fix-news .article h6 {
+    min-height: 60px;
+    overflow: hidden;
+}
+
+#fix-news .article img {
+    height: 190px;
+}
+
+#fix-news .article:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.article-header {
+    width:100%;
+    margin-left: -1%;
+    top: 80px;
+    flex-direction: row;
+}
+
+/*
+*   SPE MOBILE
+*/
+
+@media (max-width:768px){
+
+    .img-article {
+        width: 100%; 
+    }
+
+    .article-header {
+        top: 20px;
+    }
+    
+    #right{
+        background-size : cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        overflow-y: scroll!important;
+        width: 100%;
+    }
+
+    #right-mobile.open{
+        right: 0;
+        color: #000;
+        width: 90%;
+        overflow-y: scroll;
+    }
+
+    #left {
+        width: 100%;
+        height:auto;
+    }
+
+    #left .navbar {
+        height: auto;
+        width: 100%;
+    }
+
+    footer {
+        left: 0rem;
+    }
+    
+    body{
+        position:fixed;
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll!important;
+    }
+    
+    footer {
+        position:fixed;
+        bottom: 0rem;
+        left: 2rem;
+        font-size: 10px;
+    }
+    
+    #fix-news .article {
+        width: 80%;
+        background-color: var(--white-color);
+        padding: 1rem;
+        border-radius: .5rem;
+    }
+
+    #fix-news .article:last-child {
+        margin-bottom: 10rem;
+    }
+}
+
+/*
+*   LOADER
+*/
+
+#loading, #msgPopin {
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     -o-transition: all .3s;
