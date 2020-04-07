@@ -1,5 +1,6 @@
 import logo from '../../assets/img/live-news.svg'
 import { closeLoading } from '../../tools/displayLoading'
+import displayArticle from './displayArticle';
 
 export default (data) => {
 
@@ -33,6 +34,11 @@ export default (data) => {
 </div>
             `
             articleList.appendChild(article)
+
+            article.addEventListener('click', () => {
+                displayArticle(i)
+            })
+
         })
         closeLoading()
     }

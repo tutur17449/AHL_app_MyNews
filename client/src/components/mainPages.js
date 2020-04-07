@@ -27,8 +27,6 @@ export default (element) => {
         element.appendChild(mainContainer)
         
         let leftContainer = document.querySelector('#left')
-        let rightContainer = document.querySelector('#right')
-        let rightMobileContainer = document.querySelector('#right-mobile')
 
         navbar(leftContainer)
 
