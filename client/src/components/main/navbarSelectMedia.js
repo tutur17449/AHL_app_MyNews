@@ -1,5 +1,6 @@
 import { FETCHrequest } from '../../tools/fetchClass'
 import displayArticles from './displayArticles'
+import { openLoading } from '../../tools/displayLoading'
 
 export default (element) => {
 
@@ -16,6 +17,7 @@ export default (element) => {
 
     const onHandleChange = () => {
         element.addEventListener('change', () => {
+            openLoading()
             let selectIndex = element.selectedIndex;
             let refId = element.options[selectIndex].getAttribute('ref-id');
             if(refId === 'null'){

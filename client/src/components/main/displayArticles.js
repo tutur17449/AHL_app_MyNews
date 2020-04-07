@@ -1,4 +1,5 @@
 import logo from '../../assets/img/live-news.svg'
+import { closeLoading } from '../../tools/displayLoading'
 
 export default (data) => {
 
@@ -33,6 +34,7 @@ export default (data) => {
             `
             articleList.appendChild(article)
         })
+        closeLoading()
     }
     return render()
 }
