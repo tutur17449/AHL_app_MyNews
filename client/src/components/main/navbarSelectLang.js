@@ -1,7 +1,8 @@
 import { FETCHrequest } from '../../tools/fetchClass'
 import displayArticles from './displayArticles'
-import { openLoading } from '../../tools/displayLoading'
+import { openLoading, closeLoading } from '../../tools/displayLoading'
 import { checkNavToggle } from '../../tools/checkNavToggle'
+import { displayMsg } from '../../tools/displayMsg'
 
 export default (element) => {
 
@@ -13,7 +14,7 @@ export default (element) => {
         return render(jsonData)
     })
     .catch(error => {
-        console.log(error)
+        displayMsg('Les sources n\'ont pu être chargées.')
     })
 
     const onHandleChange = () => {
@@ -23,7 +24,8 @@ export default (element) => {
             let selectIndex = element.selectedIndex;
             let refId = element.options[selectIndex].getAttribute('ref-id');
             if(refId === 'null'){
-                console.log('default select')
+                displayMsg('La sélection est incorrecte.')
+                closeLoading()
             } else {
                 getArticles(refId)         
             }
@@ -38,7 +40,7 @@ export default (element) => {
             return displayArticles(jsonData)
         })
         .catch(error => {
-            console.log(error)
+            displayMsg('Les articles n\'ont pu être chargées.')
         })
     }
 
