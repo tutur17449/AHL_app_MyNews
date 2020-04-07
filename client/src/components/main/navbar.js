@@ -1,10 +1,12 @@
+import logo from '../../assets/img/live-news.svg'
+
 export default (element) => {
 
     const render = () => {
         let navContainer = document.createElement('nav')
         navContainer.classList.add('navbar', 'navbar-expand-lg', 'navbar-light', 'bg-light')
         navContainer.innerHTML = `
-<a href="/"><img src="" class="img img-fluid d-lg-none" style="width:70px;height:70px;"alt="Logo MyNews"></a>
+<a href="/"><img src="${logo}" class="img img-fluid d-lg-none" style="width:70px;height:70px;"alt="Logo MyNews"></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span> Menu
@@ -13,7 +15,7 @@ export default (element) => {
     <div class="d-flex flex-column justify-content-center align-items-center">
         <div class="d-flex flex-row justify-content-between align-items-center">
             <h1>MyNews</h1>
-            <a href="/"><img src="" class="img img-fluid d-none d-lg-block"
+            <a href="/"><img src="${logo}" class="img img-fluid d-none d-lg-block"
                     style="width:70px;height:70px;" alt="Logo MyNews"></a>
         </div>
         <!-- Button trigger modal -->
