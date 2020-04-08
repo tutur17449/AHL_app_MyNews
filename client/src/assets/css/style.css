@@ -147,11 +147,13 @@ h2, #fix-news div p {
 #msgPopin {
     position: fixed;
     bottom: 2rem;
+    opacity: 0;
     left: -110%;
 }
 
 #msgPopin.open {
     left: 2rem!important;
+    opacity: 1;
 }
 
 /*

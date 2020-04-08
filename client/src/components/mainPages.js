@@ -5,6 +5,8 @@ export default (element) => {
     const render = () => {
         let mainContainer = document.createElement('div')
         mainContainer.classList.add('row')
+        mainContainer.style.width = '100vw'
+        mainContainer.style.height = '100vh'
         mainContainer.innerHTML = `
 <div id="left">
 </div>
