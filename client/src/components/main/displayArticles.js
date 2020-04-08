@@ -1,4 +1,6 @@
 import logo from '../../assets/img/live-news.svg'
+import svgSearchPlus from '../../assets/img/search-plus-solid.svg'
+import svgCalendar from '../../assets/img/calendar-alt-solid.svg'
 import { closeLoading } from '../../tools/displayLoading'
 import displayArticle from './displayArticle';
 
@@ -29,8 +31,8 @@ export default (data) => {
 <h6>${i.title}</h6> 
 <img class="img img-fluid" src="${imgUrl}" alt="image ${i.title}">
 <div class="d-flex flex-row justify-content-between ">
-    <span><i class="far fa-clock"></i>${convertDt}</span>
-    <button class="btnShow" href="${i.url}" target="_blank"><i class="fas fa-search-plus"></i> voir plus </button>
+    <span><img class="svg" src="${svgCalendar}" alt="calendar icon"> ${convertDt}</span>
+    <button class="btnShow" href="${i.url}" target="_blank"><img class="svg" src="${svgSearchPlus}" alt="show more icon"> voir plus </button>
 </div>
             `
             articleList.appendChild(article)

@@ -66,6 +66,11 @@
 *   RESET
 */
 
+.svg {
+    width: 1rem!important;
+    height: 1rem!important;
+}
+
 a, a:hover {
     text-decoration: none;
 }

@@ -6,6 +6,8 @@ import { displayMsg } from '../../tools/displayMsg'
 
 export default (element) => {
 
+    openLoading()
+
     let apiUrlLang = "https://newsapi.org/v2/sources"
 
     let fetchApi = new FETCHrequest(apiUrlLang,'GET', null, process.env.API_KEY);
@@ -55,6 +57,7 @@ export default (element) => {
             option.textContent = i.name
             element.appendChild(option)
         })
+        closeLoading()
         onHandleChange()
     }
 }

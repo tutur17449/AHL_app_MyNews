@@ -23,7 +23,6 @@ export default (element) => {
 <div id="right-mobile">
 </div>
         `
-        console.log(mainContainer)
         element.appendChild(mainContainer)
         
         let leftContainer = document.querySelector('#left')

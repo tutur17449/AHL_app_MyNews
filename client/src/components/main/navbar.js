@@ -1,13 +1,16 @@
 import navbarSelectLang from './navbarSelectLang'
 import navbarSelectMedia from './navbarSelectMedia'
 import navbarSelectCateg from './navbarSelectCateg'
+import searchForm from './navbarSearchForm'
 import logo from '../../assets/img/live-news.svg'
 
 export default (element) => {
 
     const render = () => {
+
         let navContainer = document.createElement('nav')
         navContainer.classList.add('navbar', 'navbar-expand-lg', 'navbar-light', 'bg-light')
+
         navContainer.innerHTML = `
 <a href="/"><img src="${logo}" class="img img-fluid d-lg-none" style="width:70px;height:70px;"alt="Logo MyNews"></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -25,11 +28,7 @@ export default (element) => {
         <div id="brand-tools" class="pt-4 pb-4 d-flex m-auto w-90 flex-column justify-content-around">
             <div class="form-group">
                 <label for="search-posts-value">Rechercher un sujet</label>
-                <div class="form-inline">
-                    <input id="search-posts-value" class="form-control mr-sm-2 w-auto" type="search"
-                        placeholder="Rechercher un sujet" aria-label="Search">
-                    <button id="search-posts-btn" class="btn btn-outline-success"><i class="fas fa-tag"></i>
-                        Rechercher</button>
+                <div id="search-container" class="form-inline">
                 </div>
             </div>
             <div class="form-group mt-5">
@@ -58,12 +57,16 @@ export default (element) => {
 </div>
         `
         element.appendChild(navContainer)
+
         let selectMedia = document.querySelector('#selectMedia')
         let selectLang = document.querySelector('#selectLang')
         let selectCateg = document.querySelector('#selectCateg')
+        let searchContainer = document.querySelector('#search-container')
+
         navbarSelectLang(selectLang)
         navbarSelectMedia(selectMedia)
         navbarSelectCateg(selectCateg)
+        searchForm(searchContainer)
     
     }
 
