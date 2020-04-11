@@ -15,7 +15,15 @@ class AuthRouterClass {
             successRequest(res, {method: req.method, url: req.originalUrl}, 'ok me')
         })
         router.post('/login', (req, res)=>{
-            successRequest(res, {method: req.method, url: req.originalUrl}, 'ok login')
+            successRequest(
+                res, 
+                {
+                    method: req.method, 
+                    url: req.originalUrl,
+                    body: req.body
+                }, 
+                'ok login'
+            )
         })
         router.post('/logout', (req, res)=>{
             successRequest(res, {method: req.method, url: req.originalUrl}, 'ok logout')      
