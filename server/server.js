@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const ejs = require('ejs');
 const cors = require('cors');
+const MongoDB = require('./services/db.service');
 
 
 /*
@@ -38,18 +39,33 @@ class ServerClass {
     }
 
     serverRoutes(){
+        // API
+        const ApiRouterClass = require('./router/api.router');
+        const AuthRouterClass = require('./router/auth.router');
+
+        const ApiRouter = new ApiRouterClass();
+        server.use('/api', ApiRouter.init());
+
+        const AuthRouter = new AuthRouterClass();
+        server.use('/api/auth', AuthRouter.init())
+        
         // Index
-            server.get('/*', (req, res) => {
-               res.render('index'); 
-            })
-            
+        server.get('/*', (req, res) => {
+            res.render('index'); 
+        })
+
         // Start server
         this.launch();
     }
 
     launch(){
-        // Launch server
-        server.listen(port, () => console.log(`Server is running on port http://localhost:${port}/`))
+        MongoDB.initClient()
+        .then(db => {
+            server.listen(port, () => console.log(`Server is running on port http://localhost:${port}/`))
+        })
+        .catch(dberror => {
+            console.log(dberror)
+        })
     };
 }
 
