@@ -3,6 +3,7 @@ import navbarSelectMedia from './navbarSelectMedia'
 import navbarSelectCateg from './navbarSelectCateg'
 import searchForm from './navbarSearchForm'
 import logo from '../../assets/img/live-news.svg'
+import { checkToken } from '../../tools/checkToken'
 
 export default (element) => {
 
@@ -47,12 +48,26 @@ export default (element) => {
                         </select>
                     </div>
                 </div>
-                <div class="d-flex flex-row justify-content-center align-items-center">
-                    <button class="btn btn-auth mr-1" data-container="body" data-toggle="popover" data-placement="top"
-                        data-content="A venir" disabled><a href="/register">S'inscrire</a></button>
-                    <button class="btn btn-auth" data-container="body" data-toggle="popover" data-placement="top"
-                        data-content="A venir" disabled><a href="/login">Se connecter</a></button>
-                </div>
+                ${ 
+                    checkToken(process.env.COOKIE_NAME) ? 
+                        ` 
+                        <div class="d-flex flex-row justify-content-center align-items-center">
+                            <button class="btn btn-auth mr-1" data-container="body" data-toggle="popover" data-placement="top"
+                                data-content="A venir"><a href="/favoris"> Mes favoris </a></button>
+                            <button class="btn btn-auth" data-container="body" data-toggle="popover" data-placement="top"
+                                data-content="A venir"><a href="${window.location.origin}/api/auth/logout">Se déconnecter</a></button>
+                        </div>
+                        ` 
+                        :
+                        ` 
+                        <div class="d-flex flex-row justify-content-center align-items-center">
+                            <button class="btn btn-auth mr-1" data-container="body" data-toggle="popover" data-placement="top"
+                                data-content="A venir"><a href="/register">S'inscrire</a></button>
+                            <button class="btn btn-auth" data-container="body" data-toggle="popover" data-placement="top"
+                                data-content="A venir"><a href="/login">Se connecter</a></button>
+                        </div>
+                        ` 
+                }
             </div>
         </div>
         `

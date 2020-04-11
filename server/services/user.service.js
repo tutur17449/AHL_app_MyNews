@@ -56,3 +56,8 @@ exports.userLogin = (req, res) => {
         }
     })
 }
+
+
+exports.userLogout = (req, res) => {
+    res.clearCookie(process.env.COOKIE_NAME);
+}

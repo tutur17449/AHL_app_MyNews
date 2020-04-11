@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const User = require('../models/user.model');
 const router = express.Router();
 const { successRequest, badRequest } = require('../services/request.service');
-const { userRegister, userLogin } = require('../services/user.service');
+const { userRegister, userLogin, userLogout } = require('../services/user.service');
 
 
 class AuthRouterClass {
@@ -19,7 +19,8 @@ class AuthRouterClass {
             userRegister(req, res)
         })
         router.post('/logout', (req, res)=>{
-            successRequest(res, {method: req.method, url: req.originalUrl}, 'ok logout')      
+            userLogout(req, res)
+            //successRequest(res, {method: req.method, url: req.originalUrl}, 'ok logout')      
         })
     }
 

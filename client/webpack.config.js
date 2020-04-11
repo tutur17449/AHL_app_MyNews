@@ -24,7 +24,8 @@ module.exports = {
 			}
     }),
     new webpack.DefinePlugin({
-      "process.env.API_KEY": JSON.stringify(process.env['API_KEY'])
+      "process.env.API_KEY": JSON.stringify(process.env['API_KEY']),
+      "process.env.COOKIE_NAME": JSON.stringify(process.env['COOKIE_NAME'])
     })
   ],
   module: {
