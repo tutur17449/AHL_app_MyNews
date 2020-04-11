@@ -49,9 +49,9 @@ export default (element) => {
                 </div>
                 <div class="d-flex flex-row justify-content-center align-items-center">
                     <button class="btn btn-auth mr-1" data-container="body" data-toggle="popover" data-placement="top"
-                        data-content="A venir" disabled>S'inscrire</button>
+                        data-content="A venir" disabled><a href="/register">S'inscrire</a></button>
                     <button class="btn btn-auth" data-container="body" data-toggle="popover" data-placement="top"
-                        data-content="A venir" disabled>Se connecter</button>
+                        data-content="A venir" disabled><a href="/login">Se connecter</a></button>
                 </div>
             </div>
         </div>

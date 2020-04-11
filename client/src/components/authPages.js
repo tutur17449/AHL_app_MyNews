@@ -21,14 +21,14 @@ export default (element, uri) => {
                     return render(displayMsg('Le champ mot de passe est inférieur à 6 caractères.'))
                 }
 
-                let urlAuthApi = `/api/auth/${uri}`
-                let fetchApi = new FETCHrequest(urlAuthApi,'POST', {email: email.value, pwd: pwd.value});
+                let urlAuthApi = window.location.origin+`/api/auth/${uri}`
+                let fetchApi = new FETCHrequest(urlAuthApi,'POST', {email: email.value, password: pwd.value});
                 return fetchApi.fetch()
                 .then(jsonData => {
                     if(jsonData.error === null){
                         return window.location.replace("/");
                     }
-                    return displayMsg(`Erreur lors de la connexion : ${jsonData.error}`)
+                    return displayMsg(`Erreur lors de la connexion : ${jsonData.message}`)
                 })
                 .catch(error => {
                     return displayMsg('Erreur lors de la connexion')
@@ -45,7 +45,7 @@ export default (element, uri) => {
                     return render(displayMsg('Le champ email est vide ou incorrect'))
                 }
 
-                if(pwd.value.length <= 5 || pwdConfirm.value.length <= 5 || pwd != pwdConfirm){
+                if(pwd.value.length <= 5 || pwdConfirm.value.length <= 5 || pwd.value !== pwdConfirm.value){
                     pwd.value = ''
                     pwdConfirm.value = ''
                     return render(displayMsg('Les champs mot de passe sont incorrects. Il doivent être supérieur à 5 caractères et correspondre.'))
@@ -56,14 +56,15 @@ export default (element, uri) => {
                     return render(displayMsg('Le champ pseudo est inférieur à 6 caractères.'))
                 }
 
-                let urlAuthApi = `/api/auth/${uri}`
-                let fetchApi = new FETCHrequest(urlAuthApi,'POST', {email: email.value, pseudo: pseudo.value, pwd: pwd.value, pwdConfirm: pwdConfirm.value});
+                let urlAuthApi = window.location.origin+`/api/auth/${uri}`
+                let fetchApi = new FETCHrequest(urlAuthApi,'POST', {email: email.value, pseudo: pseudo.value, password: pwd.value});
                 return fetchApi.fetch()
                 .then(jsonData => {
                     if(jsonData.error === null){
                         return window.location.replace("/");
                     }
-                    return displayMsg(`Erreur lors de l\'inscription : ${jsonData.error}`)
+                    console.log(jsonData)
+                    return displayMsg(`Erreur lors de l\'inscription : ${jsonData.message}`)
                 })
                 .catch(error => {
                     return displayMsg('Erreur lors de l\'inscription')

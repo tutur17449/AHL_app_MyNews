@@ -32,7 +32,7 @@ export class FETCHrequest {
                     }
                     else {
                         return apiResponse.json()
-                            .then(message => reject(message))
+                            .then(error => reject(error))
                     };
                 })
                 .then(jsonData => resolve(jsonData))

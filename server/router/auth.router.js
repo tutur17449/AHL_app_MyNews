@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const User = require('../models/user.model');
 const router = express.Router();
 const { successRequest, badRequest } = require('../services/request.service');
+const { userRegister, userLogin } = require('../services/user.service');
 
 
 class AuthRouterClass {
@@ -11,12 +12,11 @@ class AuthRouterClass {
     }
 
     routes(){
-        router.get('/login', (req, res)=>{
-            successRequest(res, req.body ,'ok login')
+        router.post('/login', (req, res)=>{
+            userLogin(req, res)
         })
         router.post('/register', (req, res)=>{
-            console.log(req.body)
-            successRequest(res, req.body ,'ok register')
+            userRegister(req, res)
         })
         router.post('/logout', (req, res)=>{
             successRequest(res, {method: req.method, url: req.originalUrl}, 'ok logout')      
