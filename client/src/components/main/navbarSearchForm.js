@@ -40,8 +40,8 @@ export default (element) => {
 
     const render = () => {
         element.innerHTML = `
-<input id="search-posts-value" class="form-control mr-sm-2 w-auto" type="search" placeholder="Rechercher un sujet" aria-label="Search">
-<button id="search-posts-btn" class="btn btn-outline-success"><img class="svg" alt="search icon" src="${svgHashtag}">Rechercher</button>        
+        <input id="search-posts-value" class="form-control mr-sm-2 w-auto" type="search" placeholder="Rechercher un sujet" aria-label="Search">
+        <button id="search-posts-btn" class="btn btn-outline-success"><img class="svg" alt="search icon" src="${svgHashtag}">Rechercher</button>        
         `
         onHandleClick()
     }

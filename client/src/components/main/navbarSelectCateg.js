@@ -35,14 +35,14 @@ export default (element) => {
 
     const render = (data) => {
         element.innerHTML = `
-<option ref-id="null">--catégories--</option>
-<option ref-id="science">Science</option>
-<option ref-id="technology">Téchnologie</option>
-<option ref-id="business">Business</option>
-<option ref-id="general">Général</option>
-<option ref-id="health">Santé</option>
-<option ref-id="sports">Sport</option>
-<option ref-id="entertainment">Divers</option>        
+        <option ref-id="null">--catégories--</option>
+        <option ref-id="science">Science</option>
+        <option ref-id="technology">Téchnologie</option>
+        <option ref-id="business">Business</option>
+        <option ref-id="general">Général</option>
+        <option ref-id="health">Santé</option>
+        <option ref-id="sports">Sport</option>
+        <option ref-id="entertainment">Divers</option>        
         `
         onHandleChange()
         }

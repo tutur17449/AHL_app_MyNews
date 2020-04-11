@@ -28,12 +28,12 @@ export default (data) => {
             article.setAttribute('ref-id', i.id)
             article.classList.add('article')
             article.innerHTML = `
-<h6>${i.title}</h6> 
-<img class="img img-fluid" src="${imgUrl}" alt="image ${i.title}">
-<div class="d-flex flex-row justify-content-between ">
-    <span><img class="svg" src="${svgCalendar}" alt="calendar icon"> ${convertDt}</span>
-    <button class="btnShow" href="${i.url}" target="_blank"><img class="svg" src="${svgSearchPlus}" alt="show more icon"> voir plus </button>
-</div>
+            <h6>${i.title}</h6> 
+            <img class="img img-fluid" src="${imgUrl}" alt="image ${i.title}">
+            <div class="d-flex flex-row justify-content-between ">
+                <span><img class="svg" src="${svgCalendar}" alt="calendar icon"> ${convertDt}</span>
+                <button class="btnShow" href="${i.url}" target="_blank"><img class="svg" src="${svgSearchPlus}" alt="show more icon"> voir plus </button>
+            </div>
             `
             articleList.appendChild(article)
 

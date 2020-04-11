@@ -8,22 +8,22 @@ export default (element) => {
         mainContainer.style.width = '100vw'
         mainContainer.style.height = '100vh'
         mainContainer.innerHTML = `
-<div id="left">
-</div>
-<div id="right">
-    <div id="fix-news">
-        <div style="width: 80%; margin:auto; text-align: center;">
-            <h2> 
-                Votre actualité à portée de clic ! <br>
-            </h2>
-            <p>
-                Copyright 2020 - AHL App
-            </p>
+        <div id="left">
         </div>
-    </div>
-</div>
-<div id="right-mobile">
-</div>
+        <div id="right">
+            <div id="fix-news">
+                <div style="width: 80%; margin:auto; text-align: center;">
+                    <h2> 
+                        Votre actualité à portée de clic ! <br>
+                    </h2>
+                    <p>
+                        Copyright 2020 - AHL App
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="right-mobile">
+        </div>
         `
         element.appendChild(mainContainer)
         
