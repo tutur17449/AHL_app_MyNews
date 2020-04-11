@@ -15,6 +15,9 @@ export class FETCHrequest {
         }
 
         if (this.requestType === 'POST' || this.requestType === 'PUT') {
+            this.requestHeader.headers = {
+                'Content-Type': 'application/json'
+            }
             this.requestHeader.body = JSON.stringify(this.data);
         };
     }

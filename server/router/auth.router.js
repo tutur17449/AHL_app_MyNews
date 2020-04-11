@@ -11,19 +11,12 @@ class AuthRouterClass {
     }
 
     routes(){
-        router.get('/me', (req, res)=>{
-            successRequest(res, {method: req.method, url: req.originalUrl}, 'ok me')
+        router.get('/login', (req, res)=>{
+            successRequest(res, req.body ,'ok login')
         })
-        router.post('/login', (req, res)=>{
-            successRequest(
-                res, 
-                {
-                    method: req.method, 
-                    url: req.originalUrl,
-                    body: req.body
-                }, 
-                'ok login'
-            )
+        router.post('/register', (req, res)=>{
+            console.log(req.body)
+            successRequest(res, req.body ,'ok register')
         })
         router.post('/logout', (req, res)=>{
             successRequest(res, {method: req.method, url: req.originalUrl}, 'ok logout')      
