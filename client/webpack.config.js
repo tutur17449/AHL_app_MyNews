@@ -1,8 +1,10 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path');
 const terser = require("terser-webpack-plugin")
 const WebpackPwaManifest = require("webpack-pwa-manifest")
+const workboxPlugin = require('workbox-webpack-plugin')
 
 require('dotenv').config({path: __dirname + '/.env'})
 
@@ -32,6 +34,10 @@ module.exports = {
 				minifyURLs: true
 			}
     }),
+		new ScriptExtHtmlWebpackPlugin({
+			prefetch: [/\.js$/],
+			defaultAttribute: 'async'
+		}),
     new webpack.DefinePlugin({
       "process.env.API_KEY": JSON.stringify(process.env['API_KEY']),
       "process.env.COOKIE_NAME": JSON.stringify(process.env['COOKIE_NAME'])
@@ -47,9 +53,14 @@ module.exports = {
 					src: path.resolve('public/favicon.svg'),
 					sizes: [36, 48, 72, 96, 144, 192, 512],
 					ios: true
-				}
+				} 
 			]
-		}),
+    }),
+    new workboxPlugin.GenerateSW({
+      swDest: 'sw.js',
+      clientsClaim: true,
+      skipWaiting: true,
+    })
   ],
   optimization: {
     splitChunks: {
