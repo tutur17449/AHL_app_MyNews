@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151338041-4"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -21,8 +20,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" type="image/png">
     <title>MyNews • AHL App</title>
+    <script>
+          if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then(registration => {
+                    console.log('SW registered: ', registration);
+                }).catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+                });
+            }
+    </script>
 </head>
 <body>
+    <noscript>Merci d'activer Javascript dans les paramètres de votre navigateur pour utiliser cette app :)</noscript>
     <div id="root" class="overflow-auto container-fluid">
 
     </div>
