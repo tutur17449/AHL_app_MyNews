@@ -62,7 +62,7 @@ export default (element, uri) => {
                 return fetchApi.fetch()
                 .then(jsonData => {
                     if(jsonData.error === null){
-                        return window.location.replace("/");
+                        return window.location.replace("/login");
                     }
                     return displayMsg(`Erreur lors de l\'inscription : ${jsonData.message}`)
                 })
@@ -85,7 +85,7 @@ export default (element, uri) => {
             }
             authForm.innerHTML = `
             <div class="col-8 m-auto text-center">
-                <div class="mt-5 mb-5">
+                <div class="mb-5">
                     <a href="/"><img src="${logo}" class="img img-fluid" style="width:100px;height:100px;"alt="Logo MyNews"></a>
                     <h1> Se connecter </h1>
                 </div>
@@ -107,7 +107,7 @@ export default (element, uri) => {
         } else {
             authForm.innerHTML = `
             <div class="col-8 m-auto text-center">
-                <div class="mt-5 mb-5">
+                <div class="mb-5">
                     <a href="/"><img src="${logo}" class="img img-fluid" style="width:100px;height:100px;"alt="Logo MyNews"></a>
                     <h1> S'inscrire </h1>
                 </div>
