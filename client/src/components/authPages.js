@@ -84,7 +84,7 @@ export default (element, uri) => {
                 message
             }
             authForm.innerHTML = `
-            <div class="col-8 m-auto text-center">
+            <div class="col-8 m-auto text-center overflow-auto">
                 <div class="mb-5">
                     <a href="/"><img src="${logo}" class="img img-fluid" style="width:100px;height:100px;"alt="Logo MyNews"></a>
                     <h1> Se connecter </h1>
@@ -106,7 +106,7 @@ export default (element, uri) => {
             `;
         } else {
             authForm.innerHTML = `
-            <div class="col-8 m-auto text-center">
+            <div class="col-8 m-auto text-center overflow-auto">
                 <div class="mb-5">
                     <a href="/"><img src="${logo}" class="img img-fluid" style="width:100px;height:100px;"alt="Logo MyNews"></a>
                     <h1> S'inscrire </h1>
