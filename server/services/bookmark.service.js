@@ -2,9 +2,9 @@ const requestIssues = require('./request.service');
 const Bookmark = require('../models/bookmark.model');
 
 exports.getBookmarks = (req, res) => {
-    Bookmark.find( {user: req.user._id}, (err, data) => {
+    Bookmark.find( {user: req.user._id}, null, {sort: {_id: -1}}, (err, data) => {
         if(err){
-            return requestIssues.badRequest(res, err, 'Les favoris n\'ont pas pu être récupérés.');
+            return requestIssues.badRequest(res, err, 'Les favoris n\'ont pas pu être récupérés, vérifiez la connexion.');
         } else {
             return requestIssues.successRequest(res, data, 'Les favoris ont été récupérés.');
         }

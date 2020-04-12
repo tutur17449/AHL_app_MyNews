@@ -25,29 +25,35 @@ export default (element) => {
                     <a href="/"><img src="${logo}" class="img img-fluid d-none d-lg-block"
                             style="width:70px;height:70px;" alt="Logo MyNews"></a>
                 </div>
-                <!-- Button trigger modal -->
-                <div id="brand-tools" class="pt-4 pb-4 d-flex m-auto w-90 flex-column justify-content-around">
-                    <div class="form-group">
-                        <label for="search-posts-value">Rechercher un sujet</label>
-                        <div id="search-container" class="form-inline">
+                ${ (window.location.pathname === '/favoris') ? 
+                    `
+                    `
+                :
+                    `
+                    <div id="brand-tools" class="pt-4 pb-4 d-flex m-auto w-90 flex-column justify-content-around">
+                        <div class="form-group">
+                            <label for="search-posts-value">Rechercher un sujet</label>
+                            <div id="search-container" class="form-inline">
+                            </div>
+                        </div>
+                        <div class="form-group mt-5">
+                            <label for="selectMedia">Journaux Mondiaux</label>
+                            <select class="form-control" id="selectMedia">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="selectLang">Journaux Locaux</label>
+                            <select class="form-control" id="selectLang">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="selectCateg">Catégories</label>
+                            <select class="form-control" id="selectCateg">
+                            </select>
                         </div>
                     </div>
-                    <div class="form-group mt-5">
-                        <label for="selectMedia">Journaux Mondiaux</label>
-                        <select class="form-control" id="selectMedia">
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="selectLang">Journaux Locaux</label>
-                        <select class="form-control" id="selectLang">
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="selectCateg">Catégories</label>
-                        <select class="form-control" id="selectCateg">
-                        </select>
-                    </div>
-                </div>
+                    `
+                }
                 ${ 
                     checkToken(process.env.COOKIE_NAME) ? 
                         ` 
@@ -73,16 +79,17 @@ export default (element) => {
         `
         element.appendChild(navContainer)
 
-        let selectMedia = document.querySelector('#selectMedia')
-        let selectLang = document.querySelector('#selectLang')
-        let selectCateg = document.querySelector('#selectCateg')
-        let searchContainer = document.querySelector('#search-container')
-
-        navbarSelectLang(selectLang)
-        navbarSelectMedia(selectMedia)
-        navbarSelectCateg(selectCateg)
-        searchForm(searchContainer)
+        if(window.location.pathname === '/') {
+            let selectMedia = document.querySelector('#selectMedia')
+            let selectLang = document.querySelector('#selectLang')
+            let selectCateg = document.querySelector('#selectCateg')
+            let searchContainer = document.querySelector('#search-container')
     
+            navbarSelectLang(selectLang)
+            navbarSelectMedia(selectMedia)
+            navbarSelectCateg(selectCateg)
+            return searchForm(searchContainer)
+        }    
     }
 
     return render()

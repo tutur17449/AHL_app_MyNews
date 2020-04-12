@@ -1,5 +1,4 @@
 exports.initLoading = (loader) => {
-    console.log(loader)
     const img = document.createElement('img')
     img.setAttribute('src', '/'+loader)
     loading.appendChild(img)

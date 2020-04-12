@@ -10,39 +10,63 @@ export default (data) => {
         let articleList = document.querySelector('#fix-news');
         articleList.innerHTML = ''
 
-        data.articles.map(i => {
-            let imgUrl = ''
-            let convertDt = new Date(i.publishedAt).toLocaleDateString()
-
-            if(i.urlToImage === null || i.urlToImage === 'null'){
-                imgUrl = logo
-            } else {
-                if(i.urlToImage.substr(0,5) === 'http:'){
+        if(window.location.pathname === '/favoris'){
+            data.map(i => {
+                
+                let article = document.createElement('div')
+                article.setAttribute('ref-id', i._id)
+                article.classList.add('article')
+                article.innerHTML = `
+                <h6>${i.title}</h6> 
+                <img class="img img-fluid" src="${i.image}" alt="image ${i.title}">
+                <div class="d-flex flex-row justify-content-between ">
+                    <span><img class="svg" src="${svgCalendar}" alt="calendar icon"> ${i.date}</span>
+                    <button class="btnShow" href="${i.source}" target="_blank"><img class="svg" src="${svgSearchPlus}" alt="show more icon"> voir plus </button>
+                </div>
+                `
+                articleList.appendChild(article)
+    
+                article.addEventListener('click', () => {
+                    displayArticle(i)
+                })
+    
+            })
+            closeLoading()            
+        } else {
+            data.articles.map(i => {
+                let imgUrl = ''
+                let convertDt = new Date(i.publishedAt).toLocaleDateString()
+    
+                if(i.urlToImage === null || i.urlToImage === 'null'){
                     imgUrl = logo
                 } else {
-                    imgUrl = i.urlToImage
+                    if(i.urlToImage.substr(0,5) === 'http:'){
+                        imgUrl = logo
+                    } else {
+                        imgUrl = i.urlToImage
+                    }
                 }
-            }
-            
-            let article = document.createElement('div')
-            article.setAttribute('ref-id', i.id)
-            article.classList.add('article')
-            article.innerHTML = `
-            <h6>${i.title}</h6> 
-            <img class="img img-fluid" src="${imgUrl}" alt="image ${i.title}">
-            <div class="d-flex flex-row justify-content-between ">
-                <span><img class="svg" src="${svgCalendar}" alt="calendar icon"> ${convertDt}</span>
-                <button class="btnShow" href="${i.url}" target="_blank"><img class="svg" src="${svgSearchPlus}" alt="show more icon"> voir plus </button>
-            </div>
-            `
-            articleList.appendChild(article)
-
-            article.addEventListener('click', () => {
-                displayArticle(i)
+                
+                let article = document.createElement('div')
+                article.setAttribute('ref-id', i.id)
+                article.classList.add('article')
+                article.innerHTML = `
+                <h6>${i.title}</h6> 
+                <img class="img img-fluid" src="${imgUrl}" alt="image ${i.title}">
+                <div class="d-flex flex-row justify-content-between ">
+                    <span><img class="svg" src="${svgCalendar}" alt="calendar icon"> ${convertDt}</span>
+                    <button class="btnShow" href="${i.url}" target="_blank"><img class="svg" src="${svgSearchPlus}" alt="show more icon"> voir plus </button>
+                </div>
+                `
+                articleList.appendChild(article)
+    
+                article.addEventListener('click', () => {
+                    displayArticle(i)
+                })
+    
             })
-
-        })
-        closeLoading()
+            closeLoading()
+        }
     }
     return render()
 }

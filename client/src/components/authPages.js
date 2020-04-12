@@ -64,7 +64,6 @@ export default (element, uri) => {
                     if(jsonData.error === null){
                         return window.location.replace("/");
                     }
-                    console.log(jsonData)
                     return displayMsg(`Erreur lors de l\'inscription : ${jsonData.message}`)
                 })
                 .catch(error => {
