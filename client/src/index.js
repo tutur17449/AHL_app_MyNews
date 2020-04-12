@@ -5,7 +5,6 @@ import loader from './assets/img/loading.gif'
 import icon from './assets/img/live-news.svg'
 import authPages from './components/authPages';
 
-
 const root = document.querySelector('#root')
 const loading = document.querySelector('#loading')
 const linkIcon = document.querySelector('link[rel="icon"]')
@@ -18,7 +17,7 @@ const router = () => {
         return authPages(root, 'login')
     } else if (window.location.pathname === '/register') {
         return authPages(root, 'register')
-    }  else {
+    } else {
         return window.location.replace("/");
     }
 }

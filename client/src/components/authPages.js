@@ -1,5 +1,6 @@
 import { FETCHrequest } from '../tools/fetchClass';
 import { displayMsg } from '../tools/displayMsg';
+import logo from '../assets/img/live-news.svg';
 
 export default (element, uri) => {
 
@@ -75,6 +76,7 @@ export default (element, uri) => {
 
     const render = (message) => {
         element.innerHTML = ''
+        element.classList.add('box-center')
         const authForm = document.createElement('div')
         authForm.classList.add('row')
 
@@ -83,17 +85,21 @@ export default (element, uri) => {
                 message
             }
             authForm.innerHTML = `
-            <div class="col-8 m-auto">
+            <div class="col-8 m-auto text-center">
+                <div class="mt-5 mb-5">
+                    <a href="/"><img src="${logo}" class="img img-fluid" style="width:100px;height:100px;"alt="Logo MyNews"></a>
+                    <h1> Se connecter </h1>
+                </div>
                 <form>
-                    <div class="form-group">
+                    <div class="form-group row">
                         <label><small>Email</small></label>
                         <input type="text" class="form-control" name="email"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group row">
                         <label><small>Mot de passe</small></label>
                         <input type="password" class="form-control" name="password"/>
                     </div> 
-                    <button type="submit" class="btn btn-primary mb-auto">
+                    <button type="submit" class="btn btn-primary mt-5">
                         Se connecter
                     </button>          
                 </form>
@@ -101,25 +107,29 @@ export default (element, uri) => {
             `;
         } else {
             authForm.innerHTML = `
-            <div class="col-8 m-auto">
+            <div class="col-8 m-auto text-center">
+                <div class="mt-5 mb-5">
+                    <a href="/"><img src="${logo}" class="img img-fluid" style="width:100px;height:100px;"alt="Logo MyNews"></a>
+                    <h1> S'inscrire </h1>
+                </div>
                 <form>
-                    <div class="form-group">
+                    <div class="form-group row">
                         <label><small>Email</small></label>
                         <input type="email" class="form-control" name="email" required/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group row">
                         <label><small>Pseudo</small></label>
                         <input type="text" class="form-control" name="pseudo" required/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group row">
                         <label><small>Mot de passe</small></label>
                         <input type="password" class="form-control" name="password" required/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group row">
                         <label><small>Confirmation du mot de passe</small></label>
                         <input type="password" class="form-control" name="passwordConfirm" required/>
                     </div>  
-                    <button type="submit" class="btn btn-primary mb-auto">
+                    <button type="submit" class="btn btn-primary mt-5">
                         S'inscrire
                     </button>          
                 </form>

@@ -52,10 +52,10 @@ export default (element) => {
                     checkToken(process.env.COOKIE_NAME) ? 
                         ` 
                         <div class="d-flex flex-row justify-content-center align-items-center">
-                            <button class="btn btn-auth mr-1" data-container="body" data-toggle="popover" data-placement="top"
-                                data-content="A venir"><a href="/favoris"> Mes favoris </a></button>
-                            <button class="btn btn-auth" data-container="body" data-toggle="popover" data-placement="top"
-                                data-content="A venir"><a href="${window.location.origin}/api/auth/logout">Se déconnecter</a></button>
+                            <button class="btn btn-success mr-1" data-container="body" data-toggle="popover" data-placement="top"
+                                data-content="A venir"><a href="/favoris" style="color:#fff;"> Mes favoris </a></button>
+                            <button class="btn btn-danger" data-container="body" data-toggle="popover" data-placement="top"
+                                data-content="A venir"><a href="${window.location.origin}/api/auth/logout" style="color:#fff;">Se déconnecter</a></button>
                         </div>
                         ` 
                         :

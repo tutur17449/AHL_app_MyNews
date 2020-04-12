@@ -18,9 +18,8 @@ class AuthRouterClass {
         router.post('/register', (req, res)=>{
             userRegister(req, res)
         })
-        router.post('/logout', (req, res)=>{
+        router.get('/logout', (req, res)=>{
             userLogout(req, res)
-            //successRequest(res, {method: req.method, url: req.originalUrl}, 'ok logout')      
         })
     }
 
