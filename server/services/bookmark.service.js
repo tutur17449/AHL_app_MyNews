@@ -2,18 +2,18 @@ const requestIssues = require('./request.service');
 const Bookmark = require('../models/bookmark.model');
 
 exports.getBookmarks = (req, res) => {
-    Bookmark.findOne( {user: req.user._id}, (err, data) => {
+    Bookmark.find( {user: req.user._id}, (err, data) => {
         if(err){
-            return requestIssues.badRequest(res, err, err);
+            return requestIssues.badRequest(res, err, 'Les favoris n\'ont pas pu être récupérés.');
         } else {
-            return requestIssues.successRequest(res, data, data);
+            return requestIssues.successRequest(res, data, 'Les favoris ont été récupérés.');
         }
     })
 }
 
 exports.addBookmark = (req, res) => {
-    if (!req.body.user || !req.body.title || !req.body.subContent || !req.body.mainContent || !req.body.image || !req.body.source || !req.body.date) {
-        requestIssues.badRequest(res, 'Merci de renseigner tous les champs', 'Merci de renseigner tous les champs');
+    if (!req.user._id || !req.body.title) {
+        requestIssues.badRequest(res, 'Le favori n\'a pas pu être ajouté.', 'Le favori n\'a pas pu être ajouté.');
     } else {
         let newBookmarkData = {
             user: req.user._id,
