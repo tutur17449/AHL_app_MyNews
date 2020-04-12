@@ -8,7 +8,8 @@ const path = require('path');
 const ejs = require('ejs');
 const cors = require('cors');
 const MongoDB = require('./services/db.service');
-
+const strategy = require('./services/auth.service');
+const passport = require('passport');
 
 /*
     Config
@@ -16,6 +17,10 @@ const MongoDB = require('./services/db.service');
 
 const server = express();
 const port = process.env.PORT;
+
+// authentification & cookies
+server.use(cookieParser(process.env.JWT_SECRET));
+strategy.authJWT(passport);
 
 class ServerClass {
     init(){
