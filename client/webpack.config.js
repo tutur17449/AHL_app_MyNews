@@ -50,7 +50,7 @@ module.exports = {
 			background_color: '#212121',
 			icons: [
 				{
-					src: path.resolve('public/favicon.svg'),
+					src: path.resolve('public/favicon.png'),
 					sizes: [36, 48, 72, 96, 144, 192, 512],
 					ios: true
 				} 
