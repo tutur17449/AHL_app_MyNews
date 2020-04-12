@@ -16,7 +16,7 @@ class ApiRouterClass {
         router.get('/bookmark', passport.authenticate('jwt', { session: false }), (req, res)=>{
             getBookmarks(req, res)
         })
-        router.delete('/bookmark/:id', (req, res)=>{
+        router.delete('/bookmark/:id', passport.authenticate('jwt', { session: false }),  (req, res)=>{
             deleteBookmark(req, res)
         })
     }
