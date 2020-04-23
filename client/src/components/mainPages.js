@@ -35,11 +35,9 @@ export default (element) => {
                         MyNews : votre actualité à portée de clic !
                     </h1>
                     <p>
-                        Accéder aux articles de presse des principaux journaux mondiaux.
+                        Accéder aux articles de presse des principaux journaux mondiaux. <br>
+                        Copyright 2020 - AHL App
                     </p>
-                    <sub> 
-                        Copyright 2020 - AHL App 
-                    </sub>
                 </div>
             </div>
         </div>
