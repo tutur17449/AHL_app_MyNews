@@ -9,9 +9,7 @@ import { checkToken } from './tools/checkToken';
 const root = document.querySelector('#root')
 const loading = document.querySelector('#loading')
 const linkIcon = document.querySelector('link[rel="icon"]')
-const ogImage = document.querySelector('meta[proprety="og:image"]')
 linkIcon.setAttribute('href', icon)
-ogImage.setAttribute('content', icon)
 
 const router = () => {
     if(window.location.pathname === '/'){
