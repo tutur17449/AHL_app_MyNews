@@ -44,8 +44,8 @@ module.exports = {
     }),
 		new WebpackPwaManifest({
 			name: 'MyNews • AHL App',
-			short_name: 'MyNews • AHL App',
-			description: 'Accèder à toute l\'actualité en un clic : par revue de presse, par thème et par mots clés !',
+			short_name: 'MyNews',
+			description: "Accèder à toute l'actualité en un clic : les articles de presse par journaux, par thème et par mots clés !",
 			theme_color: '#212121',
 			background_color: '#212121',
 			icons: [

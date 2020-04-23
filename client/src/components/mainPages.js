@@ -35,8 +35,11 @@ export default (element) => {
                         Votre actualité à portée de clic ! <br>
                     </h2>
                     <p>
-                        Copyright 2020 - AHL App
+                        Accéder aux articles de presse des principaux journaux mondiaux.
                     </p>
+                    <sub> 
+                        Copyright 2020 - AHL App 
+                    </sub>
                 </div>
             </div>
         </div>
