@@ -87,7 +87,7 @@ select {
     width:30%;
 }
 
-h1, #fix-news div p {
+#right h1, #fix-news div p {
     color: var(--white-color);
     text-shadow: 1px 1px 0 var(--blue-color), 
     1px -1px 0 var(--blue-color), 
