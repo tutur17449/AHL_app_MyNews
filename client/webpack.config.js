@@ -44,16 +44,28 @@ module.exports = {
     }),
 		new WebpackPwaManifest({
 			name: 'MyNews • AHL App',
-			short_name: 'MyNews • AHL App',
+			short_name: 'MyNews',
 			description: 'Accèder à toute l\'actualité en un clic : par revue de presse, par thème et par mots clés !',
 			theme_color: '#212121',
-			background_color: '#212121',
+      background_color: '#212121',
+      inject: true,
+      fingerprints: true, 
+      includeDirectory: true,
+      ios: {
+        'apple-mobile-web-app-title': 'MyNews',
+        'apple-mobile-web-app-status-bar-style': 'white'
+      },
 			icons: [
 				{
 					src: path.resolve('public/favicon.png'),
-					sizes: [36, 48, 72, 96, 144, 192, 512],
-					ios: true
-				} 
+          sizes: [36, 48, 72, 96, 128, 144, 192, 512],
+        },
+        {
+          src: path.resolve('public/favicon-ios.png'),
+          sizes: [120, 128, 152, 167, 180, 1024],
+          destination: path.join('icons', 'ios'),
+          ios: true
+        },
 			]
     }),
     new workboxPlugin.GenerateSW({
