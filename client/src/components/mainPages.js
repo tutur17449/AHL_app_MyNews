@@ -31,10 +31,11 @@ export default (element) => {
         <div id="right">
             <div id="fix-news">
                 <div style="width: 80%; margin:auto; text-align: center;">
-                    <h2> 
-                        Votre actualité à portée de clic ! <br>
-                    </h2>
+                    <h1> 
+                        MyNews : votre actualité à portée de clic !
+                    </h1>
                     <p>
+                        Accéder aux articles de presse des principaux journaux mondiaux. <br>
                         Copyright 2020 - AHL App
                     </p>
                 </div>
